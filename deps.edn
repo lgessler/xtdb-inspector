@@ -1,8 +1,8 @@
 {:paths ["src" "resources"]
  :deps {tatut/ripley {:git/url "https://github.com/tatut/ripley.git"
                       :sha "fc70f94368cfaf805daddb7b270da25f45cd01bd"}
-        tatut/ripley-alpine {:git/url "https://github.com/tatut/ripley-alpine.git"
-                             :sha "57d3f2cb99cd05c6579ba1d975bd0af858a64fdb"}
+        tatut/ripley-alpine {:git/url "https://github.com/lgessler/ripley-alpine.git"
+                             :sha "5769cdf4043c4beaee7ca49bb7442579e60fba83"}
         compojure/compojure {:mvn/version "1.6.1"}
         http-kit/http-kit {:mvn/version "2.5.3"}
         com.xtdb/xtdb-core {:mvn/version "1.21.0"}
