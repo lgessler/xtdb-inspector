@@ -40,8 +40,8 @@
 (defn tx-op->maps [[op & data :as tx-op]]
   (case op
     ::xt/put
-    (let [[{id :xt/id :as doc}
-           valid-time-start valid-time-end] data]
+    (let [[{id :xt/id :as doc} valid-time-start valid-time-end] data]
+      (println data)
       [{:operation op
         :id id
         :payload doc
@@ -49,20 +49,18 @@
         :valid-time-end valid-time-end}])
 
     ::xt/delete
-    (let [[document valid-time-start valid-time-end] data]
+    (let [[id valid-time-start valid-time-end] data]
       [{:operation op
-        :payload document
+        :id id
         :valid-time-start valid-time-start
         :valid-time-end valid-time-end}])
 
     ::xt/match
-    (let [[id valid-time & ops] data]
-      (into [{:operation op
-              :id id
-              :payload "<match>"
-              :valid-time-start valid-time
-              :valid-time-end valid-time}]
-            (tx-op->maps ops)))
+    (let [[id document valid-time] data]
+      [{:operation op
+        :id id
+        :payload document
+        :valid-time valid-time}])
 
     ::xt/evict
     [{:operation op
