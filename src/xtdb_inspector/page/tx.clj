@@ -41,7 +41,6 @@
   (case op
     ::xt/put
     (let [[{id :xt/id :as doc} valid-time-start valid-time-end] data]
-      (println data)
       [{:operation op
         :id id
         :payload doc
